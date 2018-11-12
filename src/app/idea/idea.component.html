@@ -1,6 +1,7 @@
 <p>
   idea works!
 </p>
+<!--
 <h2>{{ideaItem}}</h2>
 <h3>{{ideaItem}}</h3>
 <div><span>id:</span>{{ideaItem.id}}</div>
@@ -10,4 +11,28 @@
 <label>name:
   <input [(ngModel)]="ideaItem.keyword" placeholder="keyword">
 </label>
+</div>
+-->
+
+<h2>My Ideas</h2>
+<ul class="ideaItem">
+  <li *ngFor="let idea of ideaItem" 
+    [class.selected]="idea == selecetdIdea"
+    (click)="onSelect(idea)">
+    <div class="badge">{{idea.id}}  {{idea.keyword}}</div>
+    <div class="note">{{idea.note}}</div>
+  </li>
+</ul>
+
+<div *ngIf="selectedIdea">
+	<h2>{{selectedIdea.keyword | uppercase}} Details</h2>
+	<div><span>id: </span>{{selectedIdea.id}}</div>
+	<div>
+	    <label>name:
+	        <input [(ngModel)]="selectedIdea.keyword" placeholder="keyword">
+	    </label>
+	    <label>note:
+	        <input [(ngModel)]="selectedIdea.note" placeholder="note">
+	    </label>
+	</div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Idea} from '../idea';
+import {IDEAS} from '../mock-ideas';
 
 @Component({
   selector: 'app-idea',
@@ -7,6 +8,7 @@ import {Idea} from '../idea';
   styleUrls: ['./idea.component.css']
 })
 export class IdeaComponent implements OnInit {
+  /*
   ideaItem : Idea = {
     id: 1,
     keyword: 'Arsene Wenger',
@@ -16,5 +18,20 @@ export class IdeaComponent implements OnInit {
 
   ngOnInit() {
   }
+  */
+  
 
+  ideaItem = IDEAS;
+  selectedIdea:Idea;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  onSelect(idea: Idea): void {
+    this.selectedIdea = idea;
+  }
 }
+
+
